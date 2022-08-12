@@ -6,9 +6,12 @@
     font-family: "Espana";
     src: url(./assets/Espaคa.otf);
     font-display: fallback;
-  }
-
-  @font-face {  
+}
+  /* 
+  The right way to import a font.
+  https://www.freecodecamp.org/news/web-fonts-in-2018-f191a48367e8/ 
+  */
+@font-face {  
     font-family: 'Espana Light';  
     font-weight: 400;  
     font-style: normal;  
