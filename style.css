@@ -9,7 +9,7 @@
 }
   /* 
   The right way to import a font.
-  https://www.freecodecamp.org/news/web-fonts-in-2018-f191a48367e8/ 
+  https://www.freecodecamp.org/news/web-fonts-in-2018-f191a48367e8/
   */
 @font-face {  
     font-family: 'Espana Light';  
@@ -134,13 +134,29 @@ form input {
     border-radius: 5px;
 }
 
+form input:focus {
+    outline: 2px solid rgb(255,218,45);
+}
+
+form input:valid {
+    border: 2px solid green;
+}
+
+form input:invalid {
+    border: 2px solid red;
+}
+
+
 form > div {
     margin: 10px 0;
 }
 
 .input-container {
     display: inline-block;
-    margin-right: 30px;
+}
+
+.password .pwd {
+    margin-right: 40px;
 }
 
 button {

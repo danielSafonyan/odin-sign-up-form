@@ -25,41 +25,34 @@
         <form action="url-handler" method="post" id="sign_up_form">
             <h2>Lets do this</h2>
             <p>Required fields are followed by <strong><span aria-label="required" style="position: static;">*</span></strong>.</p>
-            <div class="name">
-                <div class="first-name input-container">
-                    <label for="first_name">First name<strong><span aria-label="required">*</span></strong></label>
-                    <input type="text" id="first_name" name="first_name" required>
-                </div>
-                <div class="last-name input-container">
-                    <label for="last_name">Last name<strong><span aria-label="required">*</span></strong></label>
-                    <input type="text" id="first_name" name="last_name">
+            <div class="user-name">
+                <div class="input-container">
+                    <label for="user_name">Username<strong><span aria-label="required">*</span></strong></label>
+                    <input type="text" id="user_name" name="user_name" required minlength="5">
                 </div>
             </div>
             <div class="contacts">
-                <div class="email input-container">
+                <div class="input-container">
                     <label for="email">Email<strong><span aria-label="required">*</span></strong></label>
-                    <input type="email" id="email" name="email">
-                </div>
-                <div class="tel input-container">
-                    <label for="tel">Phone number<strong><span aria-label="required">*</span></strong></label>
-                    <input type="tel" id="tel" name="tel">
+                    <input type="email" id="email" name="email" required>
                 </div>
             </div>
             <div class="password">
                 <div class="pwd input-container">
-                    <label for="pwd">Password</label>
-                    <input type="password" id="pwd" name="pwd">
+                    <label for="pwd">Password<strong><span aria-label="required">*</span></strong></label>
+                    <input type="password" id="pwd" name="pwd" required>
                 </div>
+                <!-- "Your password needs to be between 8 and 30 characters long and contain one uppercase letter, one symbol, and a number."  -->
                 <div class="pwd-check input-container">
                     <label for="pwd-check">Confirm Password</label>
-                    <input type="password" id="pwd-check" name="pwd-check">
+                    <input type="password" id="pwd-check" name="pwd-check" required>
                 </div>
             </div>
             <input type="checkbox" id="news_letter" name="get_news_letter" value="true">
             <label for="news_letter">I want to learn Spanish via an email newsletter.</label>
         </form>
         <div>
-            <button type="button" form="sign_up_form">Create Account</button>
+            <button type="submit" form="sign_up_form">Create Account</button>
             <p>Already have an account? <a href="#">Sign in</a></p>
         </div>
         
