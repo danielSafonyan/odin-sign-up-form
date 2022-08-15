@@ -77,10 +77,11 @@ aside {
 main {
     flex-grow: 1;
     background-color: rgb(250, 250, 250);
+    min-width: 350px;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 main > div {
