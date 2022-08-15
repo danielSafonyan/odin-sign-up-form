@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
     <title>Odin Sign-up Form</title>
-    <link rel="preload" as="font" href="./assets/Espana-light.woff2" type="font/woff2" crossorigin="anonymous">
+    <!-- <link rel="preload" as="font" href="./assets/Espana-light.woff2" type="font/woff2" crossorigin="anonymous"> -->
 
 </head>
 <body>
@@ -22,33 +22,34 @@
             <p>We will craft your lessons based on words you encounter daily via conversations or media content.</p>
             <p>You add vocab you don't know - we create lessons based on the forgetting curve.</p>
         </div>
-        <form action="url-handler" method="post" id="sign_up_form">
+        <form action="url-handler" method="post" id="sign_up_form" autocomplete="off">
+            <div class="error"></div>
             <h2>Lets do this</h2>
             <p>Required fields are followed by <strong><span aria-label="required" style="position: static;">*</span></strong>.</p>
             <div class="user-name">
                 <div class="input-container">
-                    <label for="user_name">Username<strong><span aria-label="required">*</span></strong></label>
-                    <input type="text" id="user_name" name="user_name" required minlength="5">
+                    <label for="username">Username<strong><span aria-label="required">*</span></strong></label>
+                    <input type="text" id="username" name="username" class="invalid">
                 </div>
             </div>
             <div class="contacts">
                 <div class="input-container">
                     <label for="email">Email<strong><span aria-label="required">*</span></strong></label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" class="invalid">
                 </div>
             </div>
             <div class="password">
                 <div class="pwd input-container">
                     <label for="pwd">Password<strong><span aria-label="required">*</span></strong></label>
-                    <input type="password" id="pwd" name="pwd" required>
+                    <input type="password" id="pwd" name="pwd" class="invalid">
                 </div>
                 <!-- "Your password needs to be between 8 and 30 characters long and contain one uppercase letter, one symbol, and a number."  -->
                 <div class="pwd-check input-container">
-                    <label for="pwd-check">Confirm Password</label>
-                    <input type="password" id="pwd-check" name="pwd-check" required>
+                    <label for="pwd-check">Confirm Password<strong><span aria-label="required">*</span></strong></label>
+                    <input type="password" id="check-pwd" name="check-pwd" class="invalid">
                 </div>
             </div>
-            <input type="checkbox" id="news_letter" name="get_news_letter" value="true">
+            <input type="checkbox" id="news_letter" name="get_news_letter" value="true" checked>
             <label for="news_letter">I want to learn Spanish via an email newsletter.</label>
         </form>
         <div>

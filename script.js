@@ -1,94 +1,132 @@
-const errorMessage = document.querySelector(".error");
+const displayedError = document.querySelector('.error');
 
-const nameInput = document.querySelector("#name");
-nameInput.addEventListener('input', checkUserNameInput)
-
-function checkUserNameInput() {
-    const validityState = nameInput.validity;
-    if (validityState.valid === false) {
-        if (validityState.tooShort) {
-            errorMessage.textContent = "Your Username should be at least 5 characters long!";
-        }
-        if (validityState.patternMismatch) {
-            errorMessage.textContent = "User name can have english letters only, no punctuation and spaces!";
-        }
-        if (validityState.valueMissing) {
-            errorMessage.textContent = "Please input a Username!";
-        }
-    } else {
-        checkInputs()
+const submitButton = document.querySelector('button');
+submitButton.addEventListener('click', validateForm);
+function validateForm(event) {
+    const allInputs = document.querySelectorAll('.valid');
+    if (allInputs.length !== 4) {
+        event.preventDefault();
+        alert("Please fill out all fields!");
     }
 }
 
-const emailInput = document.querySelector("#email");
-emailInput.addEventListener('input', checkEmailInput)
-
-function checkEmailInput() {
-    const validityState = emailInput.validity;
-    if (validityState.valid === false) {
-        if (validityState.typeMismatch) {
-            errorMessage.textContent = "Please enter a valid email";
-        }
-        if (validityState.valueMissing) {
-            errorMessage.textContent = "Please input an email!";
-        }
-    } else {
-        checkInputs()
-    }
-}
+const form = document.querySelector('form');
+form.addEventListener('input', checkInputs);
 
 function checkInputs() {
-    const inputs = document.querySelectorAll('input');
-    // inputs.forEach(checkInput)
-    for (let i = 0; i < inputs.length; i++) {
-        let result = checkInput(inputs[i]);
-        if (result) break;
-        else errorMessage.textContent = "We are good!";
-    }
-
-    function checkInput(input) {
-        const validityState = input.validity;
-        if (validityState.valid === false) {
-            const attrbuteName = input.getAttribute('data-name');
-            switch(attrbuteName) {
-                case "Password":
-                    errorMessage.textContent = "Last step, a strong password!";
-                    return true;
-                    case "Email":
-                    errorMessage.textContent = "Username looks good, now it's time for your email!";
-                    return true;
-                case "Username":
-                    errorMessage.textContent = "Let's come up with a Username!";
-                    return true;
-            }  
-        }
+    const allInputs = document.querySelectorAll('.valid');
+    if (allInputs.length === 4) {
+        submitButton.style.opacity = 1;
     }
 }
 
-const passwordInput = document.querySelector("#pass");
-passwordInput.addEventListener('input', checkPasswordInput)
 
-// function checkPasswordInput() {
-//     const validityState = passwordInput.validity;
-//     console.log(validityState);
-//     if (validityState.valid === false) {
-//         if (validityState.tooShort) {
-//             errorMessage.textContent = "Your password should be at least 5 characters long!";
-//         }
-//         if (validityState.patternMismatch) {
-//             errorMessage.textContent = "Your password must contain a capitial letterm number and a special character.";
-//         }
-//         if (validityState.valueMissing) {
-//             errorMessage.textContent = "Please input a Passowrd!";
-//         }
-//     } else {
-//         checkInputs()
-//     }
-// }
+const usernameInput = document.querySelector("#username");
+usernameInput.addEventListener('input', validateUsername);
+function validateUsername() {
+    tooShortMessage = "Username should be at least 6 characters long.<br>";
+    notOnlyLettersMessage = "Username should contain letters only.<br>"
 
-function checkPasswordInput() {
-    passwordInput.validity.valid = false;
-    console.log(passwordInput.validity);
+    const isLong = usernameInput.value.length > 5 ? true : false;
+    if (!isLong && !displayedError.innerHTML.includes(tooShortMessage)) displayedError.innerHTML += tooShortMessage;
+    if (isLong) {
+        displayedError.innerHTML = displayedError.innerHTML.replace(tooShortMessage, "");
+    }
+
+    const isLettersOnly = /^[a-zA-Z]+$/.test(usernameInput.value);
+    if (!isLettersOnly && !displayedError.innerHTML.includes(notOnlyLettersMessage)) displayedError.innerHTML += notOnlyLettersMessage;
+    if (isLettersOnly) {
+        displayedError.innerHTML = displayedError.innerHTML.replace(notOnlyLettersMessage, "");
+    }
+
+    if (isLong && isLettersOnly) {
+        usernameInput.classList.remove('invalid');
+        usernameInput.classList.add('valid');
+    } else {
+        usernameInput.classList.remove('valid');
+        usernameInput.classList.add('invalid');
+    }
 }
 
-checkInputs()
+const emailInput = document.querySelector('#email');
+emailInput.addEventListener('input', validateEmail);
+function validateEmail() {
+    const invalidEmailMessage = "Please provide a valid email.<br>";
+    const emailValidationRegExp =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const emailIsValid = emailValidationRegExp.test(emailInput.value);
+
+    if(emailIsValid) {
+        displayedError.innerHTML = displayedError.innerHTML.replace(invalidEmailMessage, "");
+        emailInput.classList.remove('invalid');
+        emailInput.classList.add('valid');
+    } else if (!emailIsValid && !displayedError.innerHTML.includes(invalidEmailMessage)) {
+        displayedError.innerHTML += invalidEmailMessage;
+        emailInput.classList.remove('valid');
+        emailInput.classList.add('invalid');
+    }
+}
+
+const passwordInput = document.querySelector('#pwd');
+passwordInput.addEventListener('paste',event => event.preventDefault());
+passwordInput.addEventListener('input', validatePassword);
+function validatePassword() {
+    const isLong = passwordInput.value.length > 7;
+    const isNotLongMessage = "Password should be at least 8 characters long.<br>";
+
+    const hasCapitalLetter = !!passwordInput.value.match(/[A-Z]/g);
+    const hasNoCapitalLetterMessage = "Add a capital letter.<br>";
+
+    const hasNumber = !!passwordInput.value.match(/[0-9]/g);
+    const hasNoNumberMessage = "Add at least one number.<br>";
+    
+    const hasSpecialCharactrer = !!passwordInput.value.match(/[!@#$%^&*()_+]/g);
+    const hasNoSpecialCharMessage = "Add at least one special character.<br>";
+
+    const isValid = isLong && hasCapitalLetter && hasNumber && hasSpecialCharactrer;
+
+    if (!hasCapitalLetter && !displayedError.innerHTML.includes(hasNoCapitalLetterMessage)) {
+        displayedError.innerHTML += hasNoCapitalLetterMessage;
+    }
+    if (hasCapitalLetter) displayedError.innerHTML = displayedError.innerHTML.replace(hasNoCapitalLetterMessage, "");
+
+    if (!hasNumber && !displayedError.innerHTML.includes(hasNoNumberMessage)) {
+        displayedError.innerHTML += hasNoNumberMessage;
+    }
+    if (hasNumber) displayedError.innerHTML = displayedError.innerHTML.replace(hasNoNumberMessage, "");
+
+    if (!hasSpecialCharactrer && !displayedError.innerHTML.includes(hasNoSpecialCharMessage)) {
+        displayedError.innerHTML += hasNoSpecialCharMessage;
+    }
+    if (hasSpecialCharactrer) displayedError.innerHTML = displayedError.innerHTML.replace(hasNoSpecialCharMessage, "");
+    
+    if (!isLong && !displayedError.innerHTML.includes(isNotLongMessage)) {
+        displayedError.innerHTML += isNotLongMessage;
+    }
+    if (isLong) displayedError.innerHTML = displayedError.innerHTML.replace(isNotLongMessage, "");
+
+    if (isValid) {
+        passwordInput.classList.remove('invalid');
+        passwordInput.classList.add('valid');
+    } else {
+        passwordInput.classList.remove('valid');
+        passwordInput.classList.add('invalid');
+    }
+}
+
+const confirmPasswordInput = document.querySelector('#check-pwd');
+confirmPasswordInput.addEventListener('input', validateConfirmPassword);
+confirmPasswordInput.addEventListener('paste',event => event.preventDefault());
+function validateConfirmPassword() {
+    const passwordsMatch = passwordInput.value === confirmPasswordInput.value
+    const passwordsDnotMatchMessage = "Passwords should match!<br>"
+    if (!passwordsMatch && !displayedError.innerHTML.includes(passwordsDnotMatchMessage)) {
+        displayedError.innerHTML += passwordsDnotMatchMessage;
+        confirmPasswordInput.classList.remove('valid');
+        confirmPasswordInput.classList.add('invalid');
+    }
+    if (passwordsMatch) {
+        displayedError.innerHTML = displayedError.innerHTML.replace(passwordsDnotMatchMessage, "");
+        confirmPasswordInput.classList.remove('invalid');
+        confirmPasswordInput.classList.add('valid');
+    }
+}
