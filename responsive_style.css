@@ -29,16 +29,30 @@
 body {
     margin: 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .intro {
     text-align: center;
     background-color: rgb(200, 10, 30);
+    flex-basis: 250px;
+}
+
+.main-content {
+    padding: 0 20px;
+    flex: 1;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .intro-container {
     width: fit-content;
-    min-height: 250px;
+    height: 100%;
     margin: auto;
     background-color: rgb(255, 197, 39);
     display: flex;
@@ -52,39 +66,45 @@ body {
     margin: 0;
 }
 
-.top-text {
-    order: -1;
-    font-size: 0.7rem;
-    border-top: 2px solid;
+.top-text,
+.bottom-text {
+font-size: 1rem;
 }
 
-.main-title {
-    font-family: 'Espana Light';
-    font-size: 2rem;
-    letter-spacing: normal;
+.top-text {
+    order: -1;
+    border-top: 2px solid;
 }
 
 .bottom-text {
     order: 1;
-    font-size: 0.7rem;
     border-bottom: 2px solid;
 }
 
-.main-content {
-    padding: 0 20px;
+.main-title {
+    font-family: 'Espana Light';
+    font-size: 2.5rem;
+    letter-spacing: normal;
+}
+
+.main-text {
+    font-size: 1.3rem;
 }
 
 .main-content > h2 {
     font-family: 'Espana Light';
 }
 
-form > input {
+form > input,
+form > button {
+    font-size: 1.3rem;
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 0.5em;
     margin-bottom: 1em;
     border: 1px solid lightgray;
     border-radius: 5px;
+    letter-spacing: 0.2em;
     outline: none;
 }
 
@@ -99,12 +119,7 @@ form > input:focus {
 
 form > button {
     margin-top: 1em;
-    width: 100%;
-    border: 1px solid lightgray;
-    border-radius: 5px;
     font-family: 'Espana Light';
-    letter-spacing: 0.2em;
-    padding: 0.5em 0;
 }
 
 .inactive {
@@ -115,4 +130,18 @@ form > button {
     opacity: 1;
     color: rgb(200, 10, 30);
     background-color: rgb(255, 197, 39);
+    border: none;
 }
+
+.error {
+    padding: 1em 0.5em;
+}
+
+/* .sign-in {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    padding-bottom: 0.5em;
+} */

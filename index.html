@@ -13,19 +13,19 @@
     <aside class="intro">
         <div class="intro-container">
             <div class="main-text-container">
-                <p class="main-title">Estudiamos</p>
+                <h1 class="main-title">Estudiamos</h1>
                 <p class="main-text">A better way to learn vocabulary.</p>
             </div>
-            <p class="bottom-text">Currently in Beta</p>
-            <p class="top-text">Powered by danielSafonyan</p>
+            <span class="bottom-text">Currently in Beta</span>
+            <span class="top-text">Powered by danielSafonyan</p>
         </div>
     </aside>
     <main class="main-content">
-            <p>Found a new word? Add it to Estudiamos and we will create lessons based on the <a href="https://en.wikipedia.org/wiki/Forgetting_curve">forgetting curve</a>.</p>
+        <p class="main-text">Found a new word? Add it to Estudiamos and we will create lessons based on the <a href="https://en.wikipedia.org/wiki/Forgetting_curve">forgetting curve</a>.</p>
 
-            
+        
         <form action="url-handler" method="post" id="sign_up_form" autocomplete="off">
-            <!-- <div class="error"></div> -->
+            <div class="error">Let's start with a username</div>
             <input type="text" id="username" name="username" class="invalid" placeholder="username">
             <input type="email" id="email" name="email" class="invalid" placeholder="email">
             <input type="password" id="pwd" name="pwd" class="invalid" placeholder="password">
@@ -33,12 +33,12 @@
             <input type="password" id="check-pwd" name="check-pwd" class="invalid" placeholder="repeat password">
             <div>
                 <input type="checkbox" id="news_letter" name="get_news_letter" value="true" checked>
-                <label for="news_letter">I want to learn Spanish via an email newsletter.</label>
+                <label for="news_letter" class="main-text">I want to learn Spanish via an email newsletter.</label>
             </div>
-            <button class="active" type="submit" form="sign_up_form">Create Account</button>
+            <button class="inactive" type="submit" form="sign_up_form">Create Account</button>
         </form>
         
-        <p>Already have an account? <a href="#">Sign in</a></p>
+        <p class="main-text sign-in">Already have an account? <a href="#">Sign in</a></p>
         
     </main>
 </body>
