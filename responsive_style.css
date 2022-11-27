@@ -48,6 +48,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 }
 
 .intro-container {
@@ -85,6 +86,7 @@ font-size: 1rem;
     font-family: 'Espana Light';
     font-size: 2.5rem;
     letter-spacing: .1em;
+    color: rgb(200, 10, 30);
 }
 
 .create-title {
@@ -126,11 +128,7 @@ form > input:focus {
 form > button {
     margin-top: 1em;
     font-family: 'Espana Light';
-    letter-spacing: .1em;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-        
+    letter-spacing: .1em;        
 }
 
 .inactive {
@@ -148,11 +146,55 @@ form > button {
     padding: 1em 0.5em;
 }
 
-/* .sign-in {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    padding-bottom: 0.5em;
-} */
+@media screen and (min-width: 576px) {
+    body {
+        flex-direction: row;
+    }
+    .intro {
+        padding: 0 20px;
+    }
+    
+    .intro,
+    .main-content {
+        flex: 1;
+    }
+
+    form {
+        max-width: 450px;
+    }
+}
+
+@media screen and (min-width: 1441px) {
+    .top-text,
+    .bottom-text {
+            font-size: 1.5vw;
+        }
+    .main-title {
+        font-size: 4vw;
+    }
+    .create-title {
+        font-size: 2vw;
+    }
+    .main-text {
+        font-size: 2vw;
+    }
+    form {
+        max-width: 40vw;
+    }
+    form>input,
+    form>button {
+        font-size: 2vw;
+        display: block;
+        width: 100%;
+        padding: 0.5em;
+        margin-bottom: 1em;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        outline: none;
+    }
+    input[type=checkbox] {
+        /* transform: scale(1.5); */
+        width: 1.5vw;
+        height: 1.5vw;
+    }
+}
