@@ -1,0 +1,118 @@
+:root {
+    --main-bg-color: antiquewhite;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Espana";
+    src: url(./assets/Espaคa.otf);
+    font-display: fallback;
+}
+
+/* 
+  The right way to import a font.
+  https://www.freecodecamp.org/news/web-fonts-in-2018-f191a48367e8/
+  */
+@font-face {
+    font-family: 'Espana Light';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('./assets/Espana-light.woff2') format('woff2');
+}
+
+body {
+    margin: 0;
+    text-align: center;
+}
+
+.intro {
+    text-align: center;
+    background-color: rgb(200, 10, 30);
+}
+
+.intro-container {
+    width: fit-content;
+    min-height: 250px;
+    margin: auto;
+    background-color: rgb(255, 197, 39);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.intro-container * {
+    margin: 0;
+}
+
+.top-text {
+    order: -1;
+    font-size: 0.7rem;
+    border-top: 2px solid;
+}
+
+.main-title {
+    font-family: 'Espana Light';
+    font-size: 2rem;
+    letter-spacing: normal;
+}
+
+.bottom-text {
+    order: 1;
+    font-size: 0.7rem;
+    border-bottom: 2px solid;
+}
+
+.main-content {
+    padding: 0 20px;
+}
+
+.main-content > h2 {
+    font-family: 'Espana Light';
+}
+
+form > input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1em;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    outline: none;
+}
+
+form > input::placeholder {
+    font-family: 'Espana Light';
+    letter-spacing: 0.2em;
+}
+
+form > input:focus {
+    border: 1px solid rgb(255, 197, 39);
+}
+
+form > button {
+    margin-top: 1em;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-family: 'Espana Light';
+    letter-spacing: 0.2em;
+    padding: 0.5em 0;
+}
+
+.inactive {
+    opacity: 0.5;
+}
+
+.active {
+    opacity: 1;
+    color: rgb(200, 10, 30);
+    background-color: rgb(255, 197, 39);
+}
