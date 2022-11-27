@@ -84,7 +84,14 @@ font-size: 1rem;
 .main-title {
     font-family: 'Espana Light';
     font-size: 2.5rem;
-    letter-spacing: normal;
+    letter-spacing: .1em;
+}
+
+.create-title {
+    margin-top: 0;
+    font-family: 'Espana Light';
+    font-size: 1.5rem;
+    letter-spacing: .1em;
 }
 
 .main-text {
@@ -119,7 +126,11 @@ form > input:focus {
 form > button {
     margin-top: 1em;
     font-family: 'Espana Light';
-    letter-spacing: 0.2em;
+    letter-spacing: .1em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+        
 }
 
 .inactive {
