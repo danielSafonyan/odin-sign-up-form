@@ -37,7 +37,7 @@ body {
 .intro {
     text-align: center;
     background-color: rgb(200, 10, 30);
-    flex-basis: 250px;
+    flex: 1 0 250px;
 }
 
 .main-content {
@@ -104,7 +104,6 @@ form > button {
     margin-bottom: 1em;
     border: 1px solid lightgray;
     border-radius: 5px;
-    letter-spacing: 0.2em;
     outline: none;
 }
 
@@ -120,6 +119,7 @@ form > input:focus {
 form > button {
     margin-top: 1em;
     font-family: 'Espana Light';
+    letter-spacing: 0.2em;
 }
 
 .inactive {
