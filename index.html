@@ -27,11 +27,11 @@
         <form action="url-handler" method="post" id="sign_up_form" autocomplete="off">
             <!-- <div class="error">Let's start with a username</div> -->
             <h2 class="create-title">Create Account</h2>
-            <input type="text" id="username" name="username" class="invalid" placeholder="username">
-            <input type="email" id="email" name="email" class="invalid" placeholder="email">
-            <input type="password" id="pwd" name="pwd" class="invalid" placeholder="password">
+            <input type="text" id="username" name="username" class="invalid" placeholder="username" required>
+            <input type="email" id="email" name="email" class="invalid" placeholder="email" required> 
+            <input type="password" id="pwd" name="pwd" class="invalid" placeholder="password" required>
         <!-- "Your password needs to be between 8 and 30 characters long and contain one uppercase letter, one symbol, and a number."  -->
-            <input type="password" id="check-pwd" name="check-pwd" class="invalid" placeholder="repeat password">
+            <input type="password" id="check-pwd" name="check-pwd" class="invalid" placeholder="repeat password" required>
             <div>
                 <input type="checkbox" id="news_letter" name="get_news_letter" value="true" checked>
                 <label for="news_letter" class="main-text">I want to recieve a word of the day on email.</label>
