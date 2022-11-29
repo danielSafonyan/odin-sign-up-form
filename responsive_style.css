@@ -1,0 +1,206 @@
+:root {
+    --main-bg-color: antiquewhite;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Espana";
+    src: url(./assets/Espaคa.otf);
+    font-display: fallback;
+}
+
+/* 
+  The right way to import a font.
+  https://www.freecodecamp.org/news/web-fonts-in-2018-f191a48367e8/
+  */
+@font-face {
+    font-family: 'Espana Light';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('./assets/Espana-light.woff2') format('woff2');
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.intro {
+    text-align: center;
+    background-color: rgb(200, 10, 30);
+    flex: 1 0 250px;
+}
+
+.main-content {
+    padding: 0 20px;
+    flex: 1;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.intro-container {
+    width: fit-content;
+    height: 100%;
+    margin: auto;
+    background-color: rgb(255, 197, 39);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.intro-container * {
+    margin: 0;
+}
+
+.top-text,
+.bottom-text {
+font-size: 1rem;
+}
+
+.top-text {
+    order: -1;
+    border-top: 2px solid;
+}
+
+.bottom-text {
+    order: 1;
+    border-bottom: 2px solid;
+}
+
+.main-title {
+    font-family: 'Espana Light';
+    font-size: 2.5rem;
+    letter-spacing: .1em;
+    color: rgb(200, 10, 30);
+}
+
+.create-title {
+    margin-top: 0;
+    font-family: 'Espana Light';
+    font-size: 1.5rem;
+    letter-spacing: .1em;
+}
+
+.main-text {
+    font-size: 1.3rem;
+}
+
+.main-content > h2 {
+    font-family: 'Espana Light';
+}
+
+form > input,
+form > button {
+    font-size: 1.3rem;
+    display: block;
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    outline: none;
+}
+
+form > input::placeholder {
+    font-family: 'Espana Light';
+    letter-spacing: 0.2em;
+}
+
+form > input:focus {
+    border: 1px solid rgb(255, 197, 39);
+}
+
+form > button {
+    margin-top: 1em;
+    font-family: 'Espana Light';
+    letter-spacing: .1em;        
+}
+
+.inactive {
+    opacity: 0.5;
+}
+
+.active {
+    opacity: 1;
+    color: rgb(200, 10, 30);
+    background-color: rgb(255, 197, 39);
+    border: none;
+}
+
+.correct-input,
+.correct-input:focus
+ {
+    border: 1px solid green;
+}
+
+.error {
+    padding: 1em 0.5em;
+}
+
+@media screen and (min-width: 576px) {
+    body {
+        flex-direction: row;
+    }
+    .intro {
+        padding: 0 20px;
+    }
+    
+    .intro,
+    .main-content {
+        flex: 1;
+    }
+
+    form {
+        max-width: 450px;
+    }
+}
+
+@media screen and (min-width: 1441px) {
+    .top-text,
+    .bottom-text {
+            font-size: 1.5vw;
+        }
+    .main-title {
+        font-size: 4vw;
+    }
+    .create-title {
+        font-size: 2vw;
+    }
+    .main-text {
+        font-size: 2vw;
+    }
+    form {
+        max-width: 40vw;
+    }
+    form>input,
+    form>button {
+        font-size: 2vw;
+        display: block;
+        width: 100%;
+        padding: 0.5em;
+        margin-bottom: 1em;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        outline: none;
+    }
+    input[type=checkbox] {
+        /* transform: scale(1.5); */
+        width: 1.5vw;
+        height: 1.5vw;
+    }
+}

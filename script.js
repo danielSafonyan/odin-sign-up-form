@@ -13,7 +13,6 @@ function validateForm(event) {
 const form = document.querySelector('form');
 form.addEventListener('input', checkInputs);
 
-function checkInputs() {
     const allInputs = document.querySelectorAll('.valid');
     if (allInputs.length === 4) {
         submitButton.style.opacity = 1;

@@ -1,61 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./responsive_style.css">
     <script src="./script.js" defer></script>
     <title>Odin Sign-up Form</title>
     <link rel="preload" as="font" href="./assets/Espana-light.woff2" type="font/woff2">
 
 </head>
 <body>
-    <aside>
-        <div class="logo-container">
-            <img src="./assets//estudiames-logo.png" alt="Estudiamos Logo"> 
-            <span>Estudiamos</span>
+    <aside class="intro">
+        <div class="intro-container">
+            <div class="main-text-container">
+                <h1 class="main-title">Estudiamos</h1>
+                <p class="main-text">A better way to learn vocabulary.</p>
+            </div>
+            <span class="bottom-text">Currently in Beta</span>
+            <span class="top-text">Powered by danielSafonyan</p>
         </div>
-        <p class="credit">Photo by <a href="https://unsplash.com/photos/jo9eYA750V0">Cameron Stewart</a> on Unsplash</p>
     </aside>
-    <main>
-        <div>
-            <p>With Estudiamos, you can learn Spanish vocabulary from the real world!</p>
-            <p>We will craft your lessons based on words you encounter daily via observation, conversations or media content.</p>
-            <p>You add vocab you don't know - we create lessons based on the <a href="https://en.wikipedia.org/wiki/Forgetting_curve">forgetting curve</a>.</p>
-        </div>
+    <main class="main-content">
+        <p class="main-text">Found a new word? Add it to Estudiamos and we will create lessons based on the <a href="https://en.wikipedia.org/wiki/Forgetting_curve">forgetting curve</a>.</p>
+
+        
         <form action="url-handler" method="post" id="sign_up_form" autocomplete="off">
-            <div class="error"></div>
-            <h2>Lets do this</h2>
-            <p>Required fields are followed by <strong><span aria-label="required" style="position: static;">*</span></strong>.</p>
-            <div class="user-name">
-                <div class="input-container">
-                    <label for="username">Username<strong><span aria-label="required">*</span></strong></label>
-                    <input type="text" id="username" name="username" class="invalid">
-                </div>
+            <!-- <div class="error">Let's start with a username</div> -->
+            <h2 class="create-title">Create Account</h2>
+            <input type="text" id="username" name="username" class="invalid" placeholder="username" required>
+            <input type="email" id="email" name="email" class="invalid" placeholder="email" required> 
+            <input type="password" id="pwd" name="pwd" class="invalid" placeholder="password" required>
+        <!-- "Your password needs to be between 8 and 30 characters long and contain one uppercase letter, one symbol, and a number."  -->
+            <input type="password" id="check-pwd" name="check-pwd" class="invalid" placeholder="repeat password" required>
+            <div>
+                <input type="checkbox" id="news_letter" name="get_news_letter" value="true" checked>
+                <label for="news_letter" class="main-text">I want to recieve a word of the day on email.</label>
             </div>
-            <div class="contacts">
-                <div class="input-container">
-                    <label for="email">Email<strong><span aria-label="required">*</span></strong></label>
-                    <input type="email" id="email" name="email" class="invalid">
-                </div>
-            </div>
-            <div class="password">
-                <div class="pwd input-container">
-                    <label for="pwd">Password<strong><span aria-label="required">*</span></strong></label>
-                    <input type="password" id="pwd" name="pwd" class="invalid">
-                </div>
-                <!-- "Your password needs to be between 8 and 30 characters long and contain one uppercase letter, one symbol, and a number."  -->
-                <div class="pwd-check input-container">
-                    <label for="pwd-check">Confirm Password<strong><span aria-label="required">*</span></strong></label>
-                    <input type="password" id="check-pwd" name="check-pwd" class="invalid">
-                </div>
-            </div>
-            <input type="checkbox" id="news_letter" name="get_news_letter" value="true" checked>
-            <label for="news_letter">I want to learn Spanish via an email newsletter.</label>
+            <button class="inactive" type="submit" form="sign_up_form">Create Account</button>
         </form>
-        <div>
-            <button type="submit" form="sign_up_form">Create Account</button>
-            <p>Already have an account? <a href="#">Sign in</a></p>
-        </div>
+        
+        <p class="main-text sign-in">Already have an account? <a href="#">Sign in</a></p>
         
     </main>
 </body>
